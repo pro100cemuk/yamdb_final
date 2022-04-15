@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Category, Comments, Genre, Title, User, Review
+from .models import Category, Comments, Genre, Review, Title, User
 
 EMPTY_CONST = '-пусто-'
 admin.site.register(User, UserAdmin)
