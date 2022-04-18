@@ -76,9 +76,9 @@ apt install docker-compose
 ```
 sudo  docker-compose --version
 ```
-Создайте папку `nginx`:
+Создайте папку `yamdb_final`:
 ```
-mkdir nginx
+mkdir yamdb_final
 ```
 ### После успешного деплоя:
 Соберите статические файлы (статику):
