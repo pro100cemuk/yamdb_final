@@ -95,7 +95,7 @@ docker-compose exec web python manage.py migrate --noinput
 docker-compose exec web python manage.py createsuperuser
 
 ```
-или
+или загрузите дамп бд
 ```
 docker-compose exec web python manage.py loaddata fixtures.json
 ```
