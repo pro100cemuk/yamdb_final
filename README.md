@@ -80,12 +80,12 @@ sudo  docker-compose --version
 ### После успешного деплоя:
 Соберите статические файлы (статику):
 ```
-docker-compose exec web python manage.py collectstatic --no-input
+sudo docker-compose exec web python manage.py collectstatic --no-input
 ```
-Примените миграции:
+Примените миграции (уже вшиты в workflow):
 ```
-docker-compose exec web python manage.py makemigrations
-docker-compose exec web python manage.py migrate --noinput
+sudo docker-compose exec -T web python manage.py migrate auth
+sudo docker-compose exec -T web python manage.py migrate --fake-initial --run-syncdb
 ```
 Создайте суперпользователя:
 ```
@@ -96,7 +96,8 @@ docker-compose exec web python manage.py createsuperuser
 ```
 docker-compose exec web python manage.py loaddata fixtures.json
 ```
-
+## Open Source License
+GPL v3 (can check in gpl-3.0.md file)
 
 ## Автор
 Семенов Евгений aka pro100cemuk
