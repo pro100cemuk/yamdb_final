@@ -7,7 +7,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: pro100cemuk/infra_actions:latest
+    image: pro100cemuk/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/app/static/
