@@ -102,7 +102,7 @@ docker-compose exec web python manage.py loaddata fixtures.json
 
 
 ## Автор
-Семенов Евгений
+Семенов Евгений aka pro100cemuk
 
 ## Развёрнутый проект
 http://51.250.3.132/api/v1/
