@@ -103,6 +103,6 @@ GPL v3 (can check in gpl-3.0.md file)
 Семенов Евгений aka pro100cemuk 
 
 ## Развёрнутый проект
-http://51.250.3.132/api/v1/
-http://51.250.3.132/admin/
-http://51.250.3.132/redoc/
+http://51.250.66.109/api/v1/
+http://51.250.66.109/admin/
+http://51.250.66.109/redoc/
