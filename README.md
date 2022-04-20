@@ -70,7 +70,7 @@ POSTGRES_PASSWORD - postgres (по умолчанию)
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
-apt install docker-compose
+sudo apt install docker-compose
 ```
 Проверьте корректность установки Docker-compose:
 ```
@@ -78,9 +78,9 @@ sudo  docker-compose --version
 ```
 
 ### После успешного деплоя:
-Соберите статические файлы (статику):
+Соберите статические файлы (статику, уже вишто в workflow):
 ```
-sudo docker-compose exec web python manage.py collectstatic --no-input
+sudo docker-compose exec -T web python manage.py collectstatic --no-input
 ```
 Примените миграции (уже вшиты в workflow):
 ```
@@ -89,12 +89,12 @@ sudo docker-compose exec -T web python manage.py migrate --fake-initial --run-sy
 ```
 Создайте суперпользователя:
 ```
-docker-compose exec web python manage.py createsuperuser
+sudo docker-compose exec web python manage.py createsuperuser
 
 ```
 или загрузите дамп бд
 ```
-docker-compose exec web python manage.py loaddata fixtures.json
+sudo docker-compose exec web python manage.py loaddata fixtures.json
 ```
 ## Open Source License
 GPL v3 (can check in gpl-3.0.md file)

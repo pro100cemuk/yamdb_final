@@ -56,11 +56,12 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb_final:latest
             sudo docker-compose stop
-            sudo docker-compose rm web
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb_final
+            sudo docker-compose rm -f web
+            sudo docker-compose rm -f nginx
             touch .env
-            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} > .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
@@ -68,6 +69,7 @@ jobs:
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             echo DEBUG=${{ secrets.DEBUG }} >> .env
             sudo docker-compose up -d
+            sudo docker-compose exec -T web python manage.py collectstatic --no-input
             sudo docker-compose exec -T web python manage.py migrate auth
             sudo docker-compose exec -T web python manage.py migrate --fake-initial --run-syncdb
   send_message:
