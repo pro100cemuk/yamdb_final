@@ -92,7 +92,7 @@ sudo docker-compose exec -T web python manage.py migrate --fake-initial --run-sy
 sudo docker-compose exec web python manage.py createsuperuser
 
 ```
-или загрузите дамп бд
+или загрузите дамп бд:
 ```
 sudo docker-compose exec web python manage.py loaddata fixtures.json
 ```
