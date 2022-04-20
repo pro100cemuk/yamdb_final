@@ -90,7 +90,10 @@ sudo docker-compose exec -T web python manage.py migrate --fake-initial --run-sy
 Создайте суперпользователя:
 ```
 sudo docker-compose exec web python manage.py createsuperuser
-
+```
+Распакуйте данные для бд:
+```
+sudo docker-compose exec web python manage.py import_csv_data users.csv category.csv genre.csv titles.csv genre_title.csv review.csv comments.csv
 ```
 или загрузите дамп бд:
 ```
