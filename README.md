@@ -78,11 +78,11 @@ sudo  docker-compose --version
 ```
 
 ### После успешного деплоя:
-Соберите статические файлы (статику, уже вишто в workflow):
+Соберите статические файлы:
 ```
 sudo docker-compose exec -T web python manage.py collectstatic --no-input
 ```
-Примените миграции (уже вшиты в workflow):
+Примените миграции:
 ```
 sudo docker-compose exec -T web python manage.py migrate auth
 sudo docker-compose exec -T web python manage.py migrate --fake-initial --run-syncdb
